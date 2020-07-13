@@ -1,9 +1,5 @@
 import numpy as np
 
-"""
-Takes the file and pass to sudoku board as a numpy.ndarray, 
-with empty squares represented by the number 0.
-"""
 def covert_txt_to_array (file):
     board = np.zeros((9,9))
     count = 0
@@ -20,11 +16,13 @@ def covert_txt_to_array (file):
                     j = j + 1
                     count = count +1
                     haveNumber = True
-            except:
+            except ValueError:
                 if content[x]=='_':
                     j = j + 1
                     count = count +1
                     haveNumber = True
+                #else:
+                    #print(content[x], 'is not regonized')
             if j == 9:
                 j = 0
         if haveNumber:
