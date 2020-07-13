@@ -7,5 +7,10 @@ This working is part of discipline A rtificial Inteligence ans Inteligent System
 # Author
 Gustavo Zanatta Bruno @zanattabruno
 Guilherme Falcão Silva Campos @guilhermefscampos
+
+# References
+[Implementation](https://github.com/zietzm/dfs-sudoku-solver)  of DFS written by Michael Zietz (@zietzm)
+[Implementation](https://github.com/mahdavipanah/SudokuPyCSFr) of backtracking and MRV written by Hamidreza Mahdavipanah (@zietzm)
+
 # License
 [MIT](./LICENSE)
