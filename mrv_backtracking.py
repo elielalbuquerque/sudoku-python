@@ -30,7 +30,7 @@ def mrv_domains(sudoku):
                     if k[0] == i or k[1] == j or (k[0] in block_i_set and k[1] in block_j_set):
                         domains_dict[k].discard(sudoku[i][j])
 
-    min_remaining_val = None;
+    min_remaining_val = None
     for domain in domains_dict.values():
         if min_remaining_val is not None:
             min_remaining_val = min(min_remaining_val, len(domain))
