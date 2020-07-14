@@ -22,12 +22,13 @@ import input as inp
 platform_system = platform.system()
 result = None
 
-def print_board(res, t):
+def print_board(res, t, s=0):
     if res is None:
         print("This sudoku is not solvable!")
     else:
         print(res)
         print(f'Time to solve: {t} seconds!')
+        print(f'Steps {s}!\n')
         try:
             with open('output.txt', 'w') as file:
                 file.write(res)
@@ -41,21 +42,23 @@ def option_1():
     b.solve()
     result=b.board
     t2 = time.time() - t1
-    print_board(result,t2)
+    print_board(result,t2,b.num_steps)
 
 def option_2():
     print('Calculating Simple backtracking...')
     t1 = time.time()
     result = np.asarray(simple_backtracking.search(sudoku.tolist()), dtype=np.int32)
+    s = simple_backtracking.get_steps()
     t2 = time.time() - t1
-    print_board(result,t2)
+    print_board(result,t2,s)
 
 def option_3():
     print('Calculating Backtracking with MRV heuristic...')
     t1 = time.time()
     result = np.asarray(mrv_backtracking.search(sudoku.tolist()), dtype=np.int32)
+    s = mrv_backtracking.get_steps()
     t2 = time.time() - t1
-    print_board(result,t2)
+    print_board(result,t2,s)
 
 def clear_screen():
     if platform_system == 'Linux':
@@ -67,7 +70,6 @@ f = open("input.txt", "r")
 sudoku = inp.covert_txt_to_array(f)
 
 while True:
-    clear_screen()
     print("Algorithms options to solve Sudoku:")
     print("    1- Depth-first search")
     print("    2- Simple backtracking")
@@ -81,9 +83,7 @@ while True:
     except:
         continue
 
-    if option == 0:
-        sys.exit(0)
-    elif option == 1:
+    if option == 1:
         option_1()
     elif option == 2:
         option_2()
@@ -93,6 +93,8 @@ while True:
         option_1()
         option_2()
         option_3()
+    elif option == 0:
+        sys.exit(0)
 
 
 

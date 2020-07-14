@@ -10,7 +10,7 @@ Guilherme Falcão Silva Campos @guilhermefscampos
 
 # References
 [Implementation](https://github.com/zietzm/dfs-sudoku-solver)  of DFS written by Michael Zietz (@zietzm)
-[Implementation](https://github.com/mahdavipanah/SudokuPyCSFr) of backtracking and MRV written by Hamidreza Mahdavipanah (@zietzm)
+[Implementation](https://github.com/mahdavipanah/SudokuPyCSF) of backtracking and MRV written by Hamidreza Mahdavipanah (@zietzm)
 
 # License
 [MIT](./LICENSE)

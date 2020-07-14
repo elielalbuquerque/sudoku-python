@@ -2,6 +2,7 @@ import math
 
 from backtracking import backtracking_search
 
+steps = 0
 
 def mrv_domains(sudoku):
     domains_dict = {}
@@ -55,8 +56,14 @@ def var_selector(sudoku):
         return None, None, None
 
     var = min_domains.popitem()
+    global steps
+    steps = steps + 1
     return var[0][0], var[0][1], var[1]
 
 
 def search(sudoku):
     return backtracking_search(sudoku, var_selector, True)
+
+def get_steps():
+    global steps
+    return steps
