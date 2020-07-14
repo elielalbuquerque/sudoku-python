@@ -16,7 +16,6 @@ import numpy as np
 import dfs
 import simple_backtracking
 import mrv_backtracking
-import min_conflict
 
 import input as inp
 
@@ -81,21 +80,19 @@ while True:
             raise Exception
     except:
         continue
-    break
 
-if option == 0:
-    sys.exit(0)
-
-if option == 1:
-    option_1()
-elif option == 2:
-    option_2()
-elif option == 3:
-    option_3()
-elif option == 4:
-    option_1()
-    option_2()
-    option_3()
+    if option == 0:
+        sys.exit(0)
+    elif option == 1:
+        option_1()
+    elif option == 2:
+        option_2()
+    elif option == 3:
+        option_3()
+    elif option == 4:
+        option_1()
+        option_2()
+        option_3()
 
 
 
