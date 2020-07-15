@@ -11,9 +11,11 @@ import time
 
 import numpy as np
 
-import dfs
 import simple_backtracking
 import mrv_backtracking
+import bfs
+import dfs
+
 
 import input as inp
 
@@ -32,16 +34,23 @@ def print_board(res, t, s=0):
         except:
             pass
 
-def option_1():
+def calc_dfs():
     print('Calculating Depth-first search...')
     t1 = time.time()
-    b = dfs.DepthFirstSearch(sudoku)
-    b.solve()
-    result=b.board
+    result = np.asarray(dfs.solve_dfs(sudoku.tolist()), dtype=np.int32)
+    s = dfs.get_steps()
     t2 = time.time() - t1
-    print_board(result,t2,b.num_steps)
+    print_board(result,t2,s)
 
-def option_2():
+def calc_bfs():
+    print('Calculating Breadth-first search...')
+    t1 = time.time()
+    result = np.asarray(bfs.solve_bfs(sudoku.tolist()), dtype=np.int32)
+    s = bfs.get_steps()
+    t2 = time.time() - t1
+    print_board(result,t2,s)
+
+def calc_simple_backtracking():
     print('Calculating Simple backtracking...')
     t1 = time.time()
     result = np.asarray(simple_backtracking.search(sudoku.tolist()), dtype=np.int32)
@@ -49,7 +58,7 @@ def option_2():
     t2 = time.time() - t1
     print_board(result,t2,s)
 
-def option_3():
+def calc_backtracking_mrv():
     print('Calculating Backtracking with MRV heuristic...')
     t1 = time.time()
     result = np.asarray(mrv_backtracking.search(sudoku.tolist()), dtype=np.int32)
@@ -62,28 +71,32 @@ sudoku = inp.covert_txt_to_array(f)
 
 while True:
     print("Algorithms options to solve Sudoku:")
-    print("    1- Depth-first search")
-    print("    2- Simple backtracking")
-    print("    3- Backtracking with MRV heuristic")
-    print("    4- All")
+    print("    1- Breadth-first search")
+    print("    2- Depth-first search")
+    print("    3- Simple backtracking")
+    print("    4- Backtracking with MRV heuristic")
+    print("    5- All")
     print("    0- Exit")
     try:
         option = int(input("Enter a number: "))
-        if option < 0 or option > 4:
+        if option < 0 or option > 5:
             raise Exception
     except:
         continue
 
     if option == 1:
-        option_1()
+        calc_bfs()
     elif option == 2:
-        option_2()
+        calc_dfs()
     elif option == 3:
-        option_3()
+        calc_backtracking_mrv()
     elif option == 4:
-        option_1()
-        option_2()
-        option_3()
+        calc_backtracking_mrv()
+    elif option == 5:
+        calc_dfs()
+        calc_bfs()
+        calc_simple_backtracking()
+        calc_backtracking_mrv()
     elif option == 0:
         sys.exit(0)
 

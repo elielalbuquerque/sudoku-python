@@ -57,7 +57,7 @@ def var_selector(sudoku):
 
     var = min_domains.popitem()
     global steps
-    steps = steps + 1
+    steps += 1
     return var[0][0], var[0][1], var[1]
 
 
