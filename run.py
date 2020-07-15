@@ -3,11 +3,9 @@
 Sudoku - Solve sudoku with Python using CSF, DFS and Backtracking approach
 Based on codes writen by Hamidreza Mahdavipanah (@mahdavipanah) and Michael Zietz (@zietzm)
 Author : Gustavo Zanatta Bruno e Guilherme F. S. Camnpos
-Repository: 
+Repository: https://github.com/zanattabruno/sudoku-ia-unisinos
 License : MIT License
 """
-import os
-import platform
 import sys
 import time
 
@@ -19,7 +17,6 @@ import mrv_backtracking
 
 import input as inp
 
-platform_system = platform.system()
 result = None
 
 def print_board(res, t, s=0):
@@ -59,12 +56,6 @@ def option_3():
     s = mrv_backtracking.get_steps()
     t2 = time.time() - t1
     print_board(result,t2,s)
-
-def clear_screen():
-    if platform_system == 'Linux':
-        os.system('clear')
-    elif platform_system == 'Windows':
-        os.system('cls')
 
 f = open("input.txt", "r")
 sudoku = inp.covert_txt_to_array(f)
