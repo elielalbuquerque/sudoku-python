@@ -14,7 +14,7 @@ import entrada_saida as e_s
 def busca_em_largura():
     print('Resolvendo com a busca em largura...')
     t1 = time.time()
-    result = numpy.asarray(busca_largura.solve_bfs(sudoku.tolist()), dtype=numpy.int32)
+    result = numpy.asarray(busca_largura.resolve_sudoku_busca_largura(sudoku.tolist()), dtype=numpy.int32)
     s = busca_largura.get_passos()
     t2 = time.time() - t1
     e_s.imprime_quadro(result,t2,s)

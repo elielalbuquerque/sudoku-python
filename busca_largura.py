@@ -122,11 +122,11 @@ def Busca_em_largura(problema):
     fronteira.put(no)
 
     # Executa até todos os nós forem explorados e uma solução for encontrada
+    global passos
+    passos = 0
     while (fronteira.qsize() != 0):
-
         no = fronteira.get()
         for filho in no.expandir(problema):
-            global passos
             passos += 1
             if problema.teste_validade(filho.estado):
                 return filho
@@ -135,7 +135,7 @@ def Busca_em_largura(problema):
 
     return None
 
-def solve_bfs(board):
+def resolve_sudoku_busca_largura(board):
     problema = SudokuBuscaEmLargura(board)
     solucao = Busca_em_largura(problema)
     return solucao.estado
