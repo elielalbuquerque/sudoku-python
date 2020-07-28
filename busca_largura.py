@@ -125,7 +125,7 @@ def Busca_em_largura(problema):
     while (fronteira.qsize() != 0):
 
         no = fronteira.get()
-        for filho in no.expand(problema):
+        for filho in no.expandir(problema):
             global passos
             passos += 1
             if problema.teste_validade(filho.estado):
