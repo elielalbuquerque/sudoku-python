@@ -4,8 +4,8 @@ import time
 
 passos = 0
 
+#Classe que mantém o quadro de problemas
 class SudokuBuscaEmLargura():
-
     def __init__(self, inicial):
         self.inicial = inicial
         self.tipo = len(inicial) # Define o tipo do quadro, 6x6 ou 9x9
@@ -95,8 +95,8 @@ class SudokuBuscaEmLargura():
                     return False
         return True
 
+#Classe que mantém os nós com os problemas e seus resptivos estados
 class No:
-
     def __init__(self, estado, operacao=None):
         self.estado = estado
         self.operacao = operacao
@@ -111,6 +111,7 @@ class No:
         next = problema.resultado(self.estado, operacao)
         return No(next, operacao)
 
+#Função que varre a arvore de problemas em busca de uma solução válida para o problema do SUDOKU
 def Busca_em_largura(problema):
     # Cria o nó inicial da árvore de problemas mantendo o quadro original
     no = No(problema.inicial)
