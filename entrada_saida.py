@@ -1,7 +1,11 @@
-import numpy as np
+import numpy
 
-def covert_txt_to_array (file):
-    board = np.zeros((9,9))
+def covert_txt_to_array (arquivo):
+    try:
+        file = open(arquivo, "r")
+    except (FileNotFoundError, IOError):
+        print("Arquivo de entrada não encontrado!")
+    board = numpy.zeros((9,9))
     count = 0
     i = 0
     j = 0
@@ -28,3 +32,16 @@ def covert_txt_to_array (file):
         if haveNumber:
             i = i + 1
     return board   
+
+def imprime_quadro(resultado, t, s=0):
+    if resultado is None:
+        print("Esse quadro não tem solução!")
+    else:
+        print(resultado)
+        print(f'Tempo para resolução: {t} segundos!')
+        print(f'Passos {s}!\n')
+        arquivo_saida = 'saida.txt'
+        try:
+            numpy.savetxt(arquivo_saida, resultado, delimiter=' ', fmt='%d')
+        except (FileNotFoundError, IOError):
+            print("Arquivo de saída não encontrado!")
