@@ -19,7 +19,7 @@ def busca_em_largura():
     t2 = time.time() - t1
     e_s.imprime_quadro(result,t2,s)
 
-sudoku = e_s.covert_txt_to_array('entrada.txt')
+sudoku = e_s.coverte_txt_to_array('entrada.txt')
 
 while True:
     print("Opções de algoritmos para resolver o SUDOKU:")
@@ -42,7 +42,3 @@ while True:
         busca_em_largura()
     elif option == 0:
         sys.exit(0)
-
-
-
-
