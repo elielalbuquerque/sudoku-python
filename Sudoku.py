@@ -1,7 +1,7 @@
 import copy
 
 #Classe que mantém o quadro de problemas
-class SudokuBuscaEmLargura():
+class Sudoku():
     def __init__(self, inicial):
         self.inicial = inicial
         self.tipo = len(inicial) # Define o tipo do quadro, 6x6 ou 9x9
@@ -61,7 +61,7 @@ class SudokuBuscaEmLargura():
         return novo_estado
 
     # Usa a soma de cada linha, coluna e quadrante para verificar a validade do quadro
-    def teste_validade(self, state):
+    def testa_validade(self, state):
 
         # Soma esperada de cada linha, coluna ou quadrante.
         total = sum(range(1, self.tipo+1))

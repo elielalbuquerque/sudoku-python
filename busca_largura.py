@@ -1,6 +1,5 @@
 from queue import Queue
-#import time
-from SudokuBuscaEmLargura import *
+from Sudoku import Sudoku
 from NoArvore import *
 
 passos = 0
@@ -12,7 +11,7 @@ def Busca_em_largura(problema):
     # Cria o nó inicial da árvore de problemas mantendo o quadro original
     no = NoArvore(problema.inicial)
     # Verifi se o quadro incial está correto e retorna imediatamente se este é válido
-    if problema.teste_validade(no.estado):
+    if problema.testa_validade(no.estado):
         return no
 
     fronteira = Queue()
@@ -25,7 +24,7 @@ def Busca_em_largura(problema):
         no = fronteira.get()
         for filho in no.expandir(problema):
             passos += 1
-            if problema.teste_validade(filho.estado):
+            if problema.testa_validade(filho.estado):
                 return filho
 
             fronteira.put(filho)
@@ -33,7 +32,7 @@ def Busca_em_largura(problema):
     return None
 
 def resolve_sudoku_busca_largura(board):
-    problema = SudokuBuscaEmLargura(board)
+    problema = Sudoku(board)
     solucao = Busca_em_largura(problema)
     return solucao.estado
 

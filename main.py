@@ -23,8 +23,8 @@ sudoku = e_s.coverte_txt_to_array('entrada.txt')
 
 while True:
     print("Opções de algoritmos para resolver o SUDOKU:")
-    print("1- Busca em Largura")
-    print("2- Busca Heuristica")
+    print("1- Implemetação baseada no algoritmo de Busca em Largura")
+    print("2- Busca ...")
     print("3- Todos")
     print("0- Sair")
     try:
