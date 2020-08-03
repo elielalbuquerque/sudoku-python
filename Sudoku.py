@@ -90,3 +90,22 @@ class Sudoku():
                 if (total_quadrante != total):
                     return False
         return True
+    
+    # Função para fazer o print do board
+    def print_sudoku(self):
+        out_str = ''
+        for i in range(9):
+            if i in [3, 6]:
+                out_str += '------+-------+------\n'
+            line = ''
+            for j in range(9):
+                if j in [3, 6]:
+                    line += '| '
+                number = str(self.inicial[i][j]) if self.inicial[i][j] > 0 else '_'
+                line += number + ' '
+            out_str += line + '\n'
+        return out_str
+
+    # Sobreescrita do metodo que transforma o objeto em string
+    def __repr__(self):
+        return self.print_sudoku()
