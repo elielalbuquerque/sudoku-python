@@ -21,17 +21,19 @@ class SudokuState:
                 new_states.append(new_state)
         return new_states
 
+    # Função private para calcular as possibilidades de cada estado
     def _get_heuristic_states(self):
         new_states = []
         for i in range(9):
             for j in range(9):
                 if self.board[i][j] == 0:
-                    valid_numbers = self.get_possibilities(i, j)
+                    valid_numbers = self._get_possibilities(i, j)
                     new_state = (valid_numbers, i, j)
                     new_states.append(new_state)
         return new_states
 
-    def get_possibilities(self, i, j):
+    # Verificas as possibilidades da posição i,j
+    def _get_possibilities(self, i, j):
         # Seleciona todos os numeros da linha i
         elem_linha = set(self.board[i, :])
         # Seleciona todos o numeros da coluna j
@@ -55,6 +57,7 @@ class SudokuState:
                    3 * sub_grid_coluna:  3 * sub_grid_coluna + 3]
         return sub_grid
 
+    # Verifica se o board esta na situação de final
     def is_final(self):
         for i in range(1, 10):
             values = (self.board == i)
@@ -74,6 +77,7 @@ class SudokuState:
             return False
         return True
 
+    # override do operador "<" para ser usado na priorityQueue
     def __lt__(self, other):
         return self.heuristic < other.heuristic
 
@@ -85,6 +89,8 @@ class SudokuPlayer:
     def __init__(self, board):
         self.board = np.array(board)
 
+    # A PriorityQueue sempre retorna quem tiver o menor valor
+    # A heuristica usada é a quantidade de numeros que o estado permite.
     def solve_a_star(self):
         frontier = PriorityQueue()
         node = SudokuState(self.board, 1)
@@ -100,6 +106,7 @@ class SudokuPlayer:
                 frontier.put(s)
         return None
 
+    # Função que retorna a string com o board
     def __repr__(self):
         out_str = ''
         for i in range(9):
