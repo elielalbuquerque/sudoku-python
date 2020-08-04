@@ -4,12 +4,17 @@ from queue import PriorityQueue
 
 
 class SudokuState:
-    def __init__(self, board, heuristic):
+    def __init__(self, board, heuristic, depth=0):
         self.board = copy.deepcopy(board)
         self.heuristic = heuristic
+        self.depth = depth
+
+    def get_heuristic(self):
+        return self.heuristic - self.depth
 
     # Retorna uma lista com os novos estados e com as heuristicas de cada um
     def get_next_states(self):
+        depth = self.depth + 1
         new_states = []
         new_heuristic_states = self._get_heuristic_states()
         for values, i, j in new_heuristic_states:
@@ -17,7 +22,7 @@ class SudokuState:
             heuristic = len(values)
             for value in values:
                 board[i][j] = value
-                new_state = SudokuState(board, heuristic)
+                new_state = SudokuState(board, heuristic, depth)
                 new_states.append(new_state)
         return new_states
 
@@ -79,10 +84,10 @@ class SudokuState:
 
     # override do operador "<" para ser usado na priorityQueue
     def __lt__(self, other):
-        return self.heuristic < other.heuristic
+        return self.get_heuristic() < other.get_heuristic()
 
     def __repr__(self):
-        return f"Heuristic: {self.heuristic}"
+        return f"Heuristic: {self.get_heuristic()}"
 
 
 class SudokuPlayer:
