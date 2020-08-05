@@ -4,8 +4,6 @@ from NoArvore import *
 
 passos = 0
 
-
-
 #Função que varre a arvore de problemas em busca de uma solução válida para o problema do SUDOKU
 def Busca_em_largura(problema):
     # Cria o nó inicial da árvore de problemas mantendo o quadro original
@@ -26,7 +24,6 @@ def Busca_em_largura(problema):
             passos += 1
             if problema.testa_validade(filho.estado):
                 return filho
-
             fronteira.put(filho)
 
     return None

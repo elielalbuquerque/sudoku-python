@@ -16,8 +16,7 @@ def busca_em_largura():
     t1 = time.time()
     result = numpy.asarray(busca_largura.resolve_sudoku_busca_largura(sudoku.tolist()), dtype=numpy.int32)
     s = busca_largura.get_passos()
-    t2 = time.time() - t1
-    e_s.imprime_quadro(result,t2,s)
+    e_s.imprime_quadro(result, time.time() - t1, s)
 
 sudoku = e_s.coverte_txt_to_array('entrada.txt')
 
