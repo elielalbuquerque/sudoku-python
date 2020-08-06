@@ -33,11 +33,25 @@ def coverte_txt_to_array (arquivo):
             i = i + 1
     return quadro   
 
-def imprime_quadro(resultado, t, s=0):
+def imprime_quadro(board):
+    out_str = ''
+    for i in range(9):
+        if i in [3, 6]:
+            out_str += '------+-------+------\n'
+        line = ''
+        for j in range(9):
+            if j in [3, 6]:
+                line += '| '
+            number = str(board[i][j]) if board[i][j] > 0 else '_'
+            line += number + ' '
+        out_str += line + '\n'
+    return out_str
+
+def imprime_resultado(resultado, t, s=0):
     if resultado is None:
         print("Esse quadro não tem solução!")
     else:
-        print(resultado)
+        print(imprime_quadro(resultado))
         print(f'Tempo para resolução: {t} segundos!')
         print(f'Passos {s}!\n')
         arquivo_saida = 'saida.txt'

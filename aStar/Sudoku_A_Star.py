@@ -133,4 +133,3 @@ class SudokuPlayerAStar:
     # Função que retorna o número de passos
     def get_steps(self):
         return self.steps
-

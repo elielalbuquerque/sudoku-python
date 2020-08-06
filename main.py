@@ -18,7 +18,7 @@ def busca_em_largura():
     sudoku_bfs = SudokuPlayerBFS(quadro_inicial.tolist())
     result = numpy.asarray(sudoku_bfs.busca_em_largura(), dtype=numpy.int32)
     s = sudoku_bfs.get_steps()
-    e_s.imprime_quadro(result, time.time() - t1, s)
+    e_s.imprime_resultado(result, time.time() - t1, s)
 
 def busca_a_star():
     print('Resolvendo com a Heurística A-Star...')
@@ -26,7 +26,7 @@ def busca_a_star():
     sudoku_A_Star = SudokuPlayerAStar(quadro_inicial)
     result = numpy.asarray(sudoku_A_Star.solve_a_star(), dtype=numpy.int32)
     s = sudoku_A_Star.get_steps()
-    e_s.imprime_quadro(result, time.time() - t1, s)
+    e_s.imprime_resultado(result, time.time() - t1, s)
 
 
 quadro_inicial = e_s.coverte_txt_to_array('entrada.txt')
