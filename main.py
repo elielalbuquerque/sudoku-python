@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sudoku - Codificação paara resoução do Sudoku usando a lógica
+Sudoku - Codificação paara resolução do Sudoku usando a lógica
 do algorirmo de busca em largura.
 Autores : Gustavo Zanatta Bruno e Guilherme F. S. Camnpos
 Repositório: https://github.com/zanattabruno/sudoku-ia-unisinos
@@ -8,22 +8,33 @@ Repositório: https://github.com/zanattabruno/sudoku-ia-unisinos
 import sys
 import time
 import numpy
-import busca_largura
+from breadthFirstSearch.Sudoku_Player_BFS import SudokuPlayerBFS
 import entrada_saida as e_s
+from aStar.Sudoku_A_Star import SudokuPlayerAStar
 
 def busca_em_largura():
     print('Resolvendo com a busca em largura...')
     t1 = time.time()
-    result = numpy.asarray(busca_largura.resolve_sudoku_busca_largura(sudoku.tolist()), dtype=numpy.int32)
-    s = busca_largura.get_passos()
+    sudoku_bfs = SudokuPlayerBFS(quadro_inicial.tolist())
+    result = numpy.asarray(sudoku_bfs.busca_em_largura(), dtype=numpy.int32)
+    s = sudoku_bfs.get_steps()
     e_s.imprime_quadro(result, time.time() - t1, s)
 
-sudoku = e_s.coverte_txt_to_array('entrada.txt')
+def busca_a_star():
+    print('Resolvendo com a Heurística A-Star...')
+    t1 = time.time()
+    sudoku_A_Star = SudokuPlayerAStar(quadro_inicial)
+    result = numpy.asarray(sudoku_A_Star.solve_a_star(), dtype=numpy.int32)
+    s = sudoku_A_Star.get_steps()
+    e_s.imprime_quadro(result, time.time() - t1, s)
+
+
+quadro_inicial = e_s.coverte_txt_to_array('entrada.txt')
 
 while True:
     print("Opções de algoritmos para resolver o SUDOKU:")
-    print("1- Implemetação baseada no algoritmo de Busca em Largura")
-    print("2- Busca ...")
+    print("1- Algoritmo de Busca em Largura")
+    print("2- Busca Heurística A-Star")
     print("3- Todos")
     print("0- Sair")
     try:
@@ -36,8 +47,9 @@ while True:
     if option == 1:
         busca_em_largura()
     elif option == 2:
-        pass
+        busca_a_star()
     elif option == 3:
         busca_em_largura()
+        busca_a_star()
     elif option == 0:
         sys.exit(0)

@@ -1,7 +1,7 @@
 import copy
 
 #Classe que mantém o quadro de problemas
-class Sudoku():
+class SudokuStateBFS():
     def __init__(self, inicial):
         self.inicial = inicial
         self.tipo = len(inicial) # Define o tipo do quadro, 6x6 ou 9x9
@@ -90,9 +90,9 @@ class Sudoku():
                 if (total_quadrante != total):
                     return False
         return True
-    
-    # Função para fazer o print do board
-    def print_sudoku(self):
+
+    # Sobreescrita do metodo que transforma o objeto em string
+    def __repr__(self):
         out_str = ''
         for i in range(9):
             if i in [3, 6]:
@@ -105,7 +105,3 @@ class Sudoku():
                 line += number + ' '
             out_str += line + '\n'
         return out_str
-
-    # Sobreescrita do metodo que transforma o objeto em string
-    def __repr__(self):
-        return self.print_sudoku()

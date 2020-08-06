@@ -1,8 +1,4 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from Sudoku import SudokuPlayer, SudokuState
+from Sudoku_A_Star import SudokuPlayerAStar, SudokuStateAStar
 
 
 def parser(input_string):
@@ -34,7 +30,7 @@ if __name__ == '__main__':
 
     board = parser(input_string)
 
-    sudoku = SudokuPlayer(board)
+    sudoku = SudokuPlayerAStar(board)
     print("Estado inicial")
     print(sudoku)
     print("Solução final")

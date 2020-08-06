@@ -2,8 +2,9 @@ import numpy as np
 import copy
 from queue import PriorityQueue
 
+passos = 0
 
-class SudokuState:
+class SudokuStateAStar:
     def __init__(self, board, heuristic, depth=0):
         self.board = copy.deepcopy(board)
         self.heuristic = heuristic
@@ -22,7 +23,7 @@ class SudokuState:
             heuristic = len(values)
             for value in values:
                 board[i][j] = value
-                new_state = SudokuState(board, heuristic, depth)
+                new_state = SudokuStateAStar(board, heuristic, depth)
                 new_states.append(new_state)
         return new_states
 
@@ -90,24 +91,27 @@ class SudokuState:
         return f"Heuristic: {self.get_heuristic()}"
 
 
-class SudokuPlayer:
+class SudokuPlayerAStar:
     def __init__(self, board):
         self.board = np.array(board)
+        self.steps = 0
+
 
     # A PriorityQueue sempre retorna quem tiver o menor valor
     # A heuristica usada é a quantidade de numeros que o estado permite.
     def solve_a_star(self):
         frontier = PriorityQueue()
-        node = SudokuState(self.board, 1)
+        node = SudokuStateAStar(self.board, 1)
         frontier.put(node)
         while not frontier.empty():
             state = frontier.get()
             if state.is_final():
                 self.board = state.board
-                print(self)
-                return state
+                #print(self)
+                return self.board
             # Adicionar os sucessores na PriorityQueue
             for s in state.get_next_states():
+                self.steps += 1
                 frontier.put(s)
         return None
 
@@ -125,3 +129,8 @@ class SudokuPlayer:
                 line += number + ' '
             out_str += line + '\n'
         return out_str
+
+    # Função que retorna o número de passos
+    def get_steps(self):
+        return self.steps
+
