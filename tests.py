@@ -9,7 +9,9 @@ def generate_inputs():
         for j in range (1, 10):
             difficulty_graduation = float(f'0.{j}')
             board = Sudoku(3).difficulty(difficulty_graduation)
-            print (board, file=open(f"tests/inputs_{j}.txt", "a"))
+            with open(f'tests/inputs_{j}.txt','w'):
+                pass
+            print (board, file=open(f'tests/inputs_{j}.txt', "a"))
 
 def solve_inputs():
     for files_it in range (1,10):
@@ -59,4 +61,4 @@ def solve_inputs():
                 quadro = numpy.zeros((9,9))
        
 
-solve_inputs()
+#solve_inputs()
