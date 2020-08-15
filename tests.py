@@ -3,7 +3,8 @@ from sudoku import Sudoku
 from breadthFirstSearch.Sudoku_Player_BFS import SudokuPlayerBFS
 from aStar.Sudoku_A_Star import SudokuPlayerAStar
 
-
+#Gera 100 quadros com níveis de dificuldade do 0.1 (fácil, mais completo)
+#até o 0.9 (mais dificil, menos completo)
 def generate_inputs():
     for j in range (1, 10):
         print(f"Gerando inputs_{j}.txt.")
@@ -30,8 +31,9 @@ def solve_A_star(quadro,file_id):
     t = time.time() - t1
     print(f'{t} {s}',file=open(f"tests/results/aStar_{file_id}.txt", "a"))
 
+
+#Lê os quadros de entrada, resolve e joga os resultados em tests/results
 def solve_inputs():
-    
     for files_it in range (1,10):
         print (f'Calculating file {files_it}.')
         open(f'tests/results/aStar_{files_it}.txt', 'w').close()
