@@ -76,6 +76,12 @@ def solve_inputs():
                 i = 0
                 j = 0
                 quadro = numpy.zeros((9,9))
-       
-generate_inputs()
-solve_inputs()
+
+def main():
+    """Função principal da aplicação.
+    """
+    generate_inputs()
+    solve_inputs()
+
+if __name__ == "__main__":
+    main()
