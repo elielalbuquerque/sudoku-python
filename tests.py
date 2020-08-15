@@ -1,5 +1,5 @@
 import numpy, time
-from sudoku import Sudoku
+from generator.sudoku import Sudoku
 from breadthFirstSearch.Sudoku_Player_BFS import SudokuPlayerBFS
 from aStar.Sudoku_A_Star import SudokuPlayerAStar
 
