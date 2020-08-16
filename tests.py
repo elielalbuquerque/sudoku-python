@@ -71,15 +71,15 @@ def solve_inputs():
                 eNumeroLinha = False
             if i == 9:
                 solve_bfs(quadro,files_it)
-                solve_A_star(quadro,files_it)
+                #solve_A_star(quadro,files_it)
                 contador = 0
                 i = 0
                 j = 0
                 quadro = numpy.zeros((9,9))
 
+
+#Função principal da aplicação.
 def main():
-    """Função principal da aplicação.
-    """
     generate_inputs()
     solve_inputs()
 
