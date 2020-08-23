@@ -11,7 +11,7 @@ class SudokuStateAStar:
         self.depth = depth
 
     def get_heuristic(self):
-        return self.heuristic - self.depth
+        return self.heuristic - self.depth * 10
 
     # Retorna uma lista com os novos estados e com as heuristicas de cada um
     def get_next_states(self):
@@ -35,8 +35,9 @@ class SudokuStateAStar:
                 if self.board[i][j] == 0:
                     valid_numbers = self._get_possibilities(i, j)
                     new_state = (valid_numbers, i, j)
-                    new_states.append(new_state)
-        return new_states
+                    yield new_state
+                    #new_states.append(new_state)
+        #return new_states
 
     # Verificas as possibilidades da posição i,j
     def _get_possibilities(self, i, j):
@@ -83,6 +84,39 @@ class SudokuStateAStar:
             return False
         return True
 
+    def testa_validade(self):
+        state = self.board
+        tipo = 9
+        altura = 3
+
+        # Soma esperada de cada linha, coluna ou quadrante.
+        total = sum(range(1, tipo+1))
+
+        # Checa linhas e colunas e retorna falso se o total não é valido
+        for linha in range(tipo):
+            if (len(state[linha]) != tipo) or (sum(state[linha]) != total):
+                return False
+
+            total_coluna = 0
+            for coluna in range(tipo):
+                total_coluna += state[coluna][linha]
+
+            if (total_coluna != total):
+                return False
+
+        # Verifica os quadrantes e retorna falso se o total é inválido
+        for coluna in range(0,tipo,3):
+            for linha in range(0,tipo,altura):
+
+                total_quadrante = 0
+                for linha_quadrante in range(0,altura):
+                    for coluna_quadrante in range(0,3):
+                        total_quadrante += state[linha + linha_quadrante][coluna + coluna_quadrante]
+
+                if (total_quadrante != total):
+                    return False
+        return True
+
     # override do operador "<" para ser usado na priorityQueue
     def __lt__(self, other):
         return self.get_heuristic() < other.get_heuristic()
@@ -105,13 +139,14 @@ class SudokuPlayerAStar:
         frontier.put(node)
         while not frontier.empty():
             state = frontier.get()
-            if state.is_final():
+            self.steps += 1
+            #if state.is_final():
+            if state.testa_validade():
                 self.board = state.board
                 #print(self)
                 return self.board
             # Adicionar os sucessores na PriorityQueue
             for s in state.get_next_states():
-                self.steps += 1
                 frontier.put(s)
         return None
 

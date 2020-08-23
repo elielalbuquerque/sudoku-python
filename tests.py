@@ -34,7 +34,7 @@ def solve_A_star(quadro,file_id):
 
 #Lê os quadros de entrada, resolve e joga os resultados em tests/results
 def solve_inputs():
-    for files_it in range (1,10):
+    for files_it in range (1,6):
         print (f'Calculating file {files_it}.')
         open(f'tests/results/aStar_{files_it}.txt', 'w').close()
         open(f'tests/results/bfs_{files_it}.txt', 'w').close()
@@ -71,7 +71,7 @@ def solve_inputs():
                 eNumeroLinha = False
             if i == 9:
                 solve_bfs(quadro,files_it)
-                #solve_A_star(quadro,files_it)
+                solve_A_star(quadro,files_it)
                 contador = 0
                 i = 0
                 j = 0
@@ -80,7 +80,7 @@ def solve_inputs():
 
 #Função principal da aplicação.
 def main():
-    generate_inputs()
+    #generate_inputs()
     solve_inputs()
 
 if __name__ == "__main__":
