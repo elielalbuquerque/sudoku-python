@@ -49,18 +49,43 @@ class AnalysisResults:
         self.median_steps = sum_steps / len(self.results)
 
     def __str__(self):
-        return(f'Median execution time: {self.median_execution_time}, Median steps {self.median_steps}'
-        f'\n Max and Min steps: {self.max_steps}, {self.min_steps}'
-        f'\n Max and Min execution time: {self.max_execution_time}, {self.min_execution_time}')
-        # for element in self.results:
-        #     print(f'{element.execution_time}, {element.steps}\n')
+        return(f'{self.median_execution_time} {self.median_steps} {self.max_steps} {self.min_steps} '
+        f'{self.max_execution_time} {self.min_execution_time}')
+
+class AnalysisResultsAll:
+    def __init__(self):
+        self.all_results_aStar = []
+        self.all_results_bfs = []
+
+    def generate_cals(self):
+        print(f"Gerando tests analysis")
+        file_bfs = open(f'tests/analysis_bfs.txt', 'w').close()
+        file_aStar = open(f'tests/analysis_aStar.txt', 'w').close()
+        for file_id in range (1, 10):
+            test_aStar = AnalysisResults(f'tests/results/aStar_{file_id}.txt')
+            test_aStar.load_results()
+            test_aStar.calc()
+            self.all_results_aStar.append(test_aStar)
+            print (test_aStar, file=open(f'tests/analysis_aStar.txt', "a"))
+            test_bfs = AnalysisResults(f'tests/results/bfs_{file_id}.txt')
+            test_bfs.load_results()
+            test_bfs.calc()
+            self.all_results_bfs.append(test_bfs)
+            print (test_bfs, file=open(f'tests/analysis_bfs.txt', "a"))
+
+
+
+
+
+
+
 
 def main():
-    test = AnalysisResults('tests/results/aStar_1.txt')
-    test.load_results()
-    test.calc()
-    print(test)
-
+    test = AnalysisResultsAll()
+    test.generate_cals()
+    # test.load_results()
+    # test.calc()
+    # print(test)
 
 
 if __name__ == "__main__":
