@@ -34,7 +34,7 @@ def solve_A_star(quadro,file_id):
 
 #Lê os quadros de entrada, resolve e joga os resultados em tests/results
 def solve_inputs():
-    for files_it in range (1,6):
+    for files_it in range (1,7):
         print (f'Calculating file {files_it}.')
         open(f'tests/results/aStar_{files_it}.txt', 'w').close()
         open(f'tests/results/bfs_{files_it}.txt', 'w').close()
