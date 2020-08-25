@@ -80,7 +80,7 @@ def solve_inputs():
 
 #Função principal da aplicação.
 def main():
-    #generate_inputs()
+    generate_inputs()
     solve_inputs()
 
 if __name__ == "__main__":
