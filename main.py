@@ -12,24 +12,24 @@ from breadthFirstSearch.Sudoku_Player_BFS import SudokuPlayerBFS
 import entrada_saida as e_s
 from aStar.Sudoku_A_Star import SudokuPlayerAStar
 
-def busca_em_largura():
+def breadth_first_search():
     print('Resolvendo com a busca em largura...')
     t1 = time.time()
-    sudoku_bfs = SudokuPlayerBFS(quadro_inicial.tolist())
+    sudoku_bfs = SudokuPlayerBFS(initial_board.tolist())
     result = numpy.asarray(sudoku_bfs.breadth_first_search(), dtype=numpy.int32)
-    s = sudoku_bfs.get_passos()
-    e_s.imprime_resultado(result, time.time() - t1, s)
+    s = sudoku_bfs.get_steps()
+    e_s.print_result(result, time.time() - t1, s)
 
-def busca_a_star():
+def a_star_search():
     print('Resolvendo com a Heurística A-Star...')
     t1 = time.time()
-    sudoku_A_Star = SudokuPlayerAStar(quadro_inicial)
+    sudoku_A_Star = SudokuPlayerAStar(initial_board)
     result = numpy.asarray(sudoku_A_Star.solve_a_star(), dtype=numpy.int32)
     s = sudoku_A_Star.get_steps()
-    e_s.imprime_resultado(result, time.time() - t1, s)
+    e_s.print_result(result, time.time() - t1, s)
 
 
-quadro_inicial = e_s.coverte_txt_to_array('entrada.txt')
+initial_board = e_s.covert_txt_to_array('entrada.txt')
 
 while True:
     print("Opções de algoritmos para resolver o SUDOKU:")
@@ -45,11 +45,11 @@ while True:
         continue
 
     if option == 1:
-        busca_em_largura()
+        breadth_first_search()
     elif option == 2:
-        busca_a_star()
+        a_star_search()
     elif option == 3:
-        busca_em_largura()
-        busca_a_star()
+        breadth_first_search()
+        a_star_search()
     elif option == 0:
         sys.exit(0)

@@ -1,6 +1,6 @@
 import numpy
 
-def coverte_txt_to_array (arquivo):
+def covert_txt_to_array (arquivo):
     try:
         dados = open(arquivo, "r")
     except (FileNotFoundError, IOError):
@@ -47,7 +47,7 @@ def imprime_quadro(board):
         out_str += line + '\n'
     return out_str
 
-def imprime_resultado(resultado, t, s=0):
+def print_result(resultado, t, s=0):
     if resultado is None:
         print("Esse quadro não tem solução!")
     else:

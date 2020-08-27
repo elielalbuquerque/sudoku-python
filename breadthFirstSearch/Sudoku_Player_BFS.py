@@ -4,7 +4,8 @@ from breadthFirstSearch.Tree_Node import TreeNode
 from breadthFirstSearch.Sudoku_State_BFS import SudokuStateBFS
 
 
-#Função que varre a arvore de problemas em busca de uma solução válida para o problema do SUDOKU
+# Classe que possui as funcionalidades que varrem a arvore de
+# problemas em busca de uma solução válida para o problema do SUDOKU
 class SudokuPlayerBFS:
     def __init__(self, board):
         self.board = SudokuStateBFS(board)
@@ -31,7 +32,7 @@ class SudokuPlayerBFS:
         return None
 
     # Função que retorna o número de passos
-    def get_passos(self):
+    def get_steps(self):
         return self.steps
 
 
