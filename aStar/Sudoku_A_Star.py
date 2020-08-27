@@ -25,6 +25,12 @@ class SudokuStateAStar:
                 board[i][j] = value
                 new_state = SudokuStateAStar(board, heuristic, depth)
                 new_states.append(new_state)
+        sorted_states = sorted(new_states)
+        if sorted_states:
+            if len(sorted_states) > 1:
+                if sorted_states[0].get_heuristic() == sorted_states[1].get_heuristic():
+                    return sorted_states[:2]
+            return sorted_states[:1]
         return new_states
 
     # Função private para calcular as possibilidades de cada estado
@@ -139,7 +145,6 @@ class SudokuPlayerAStar:
         frontier.put(node)
         while not frontier.empty():
             state = frontier.get()
-            self.steps += 1
             #if state.is_final():
             if state.testa_validade():
                 self.board = state.board
@@ -147,6 +152,7 @@ class SudokuPlayerAStar:
                 return self.board
             # Adicionar os sucessores na PriorityQueue
             for s in state.get_next_states():
+                self.steps += 1
                 frontier.put(s)
         return None
 

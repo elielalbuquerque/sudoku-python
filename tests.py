@@ -2,6 +2,8 @@ import numpy, time
 from generator.sudoku import Sudoku
 from breadthFirstSearch.Sudoku_Player_BFS import SudokuPlayerBFS
 from aStar.Sudoku_A_Star import SudokuPlayerAStar
+import random
+import sys
 
 #Gera 100 quadros com níveis de dificuldade do 0.1 (fácil, mais completo)
 #até o 0.9 (mais dificil, menos completo)
@@ -11,8 +13,12 @@ def generate_inputs():
         file = open(f'tests/inputs/inputs_{j}.txt', 'w').close()
         for i in range (100):
             difficulty_graduation = float(f'0.{j}')
-            board = Sudoku(3).difficulty(difficulty_graduation)
-            print (board, file=open(f'tests/inputs/inputs_{j}.txt', "a"))
+            seed = random.randrange(sys.maxsize)
+            #print(seed)
+            board = Sudoku(3, seed=seed).difficulty(difficulty_graduation)
+            board_id = f'+-- board {i} --+\n'
+            print(board_id, file=open(f'tests/inputs/inputs_{j}.txt', "a"))
+            print(board, file=open(f'tests/inputs/inputs_{j}.txt', "a"))
 
 
 def solve_bfs(quadro,file_id):
@@ -34,7 +40,7 @@ def solve_A_star(quadro,file_id):
 
 #Lê os quadros de entrada, resolve e joga os resultados em tests/results
 def solve_inputs():
-    for files_it in range (1,7):
+    for files_it in range (1,8):
         print (f'Calculating file {files_it}.')
         open(f'tests/results/aStar_{files_it}.txt', 'w').close()
         open(f'tests/results/bfs_{files_it}.txt', 'w').close()
@@ -50,6 +56,8 @@ def solve_inputs():
         line_valid_places=[2,4,6,10,12,14,18,20,22]
         for conteudo in dados:
             eNumeroLinha = False
+            if conteudo.startswith('+--'):
+                continue
             for x in range(len(conteudo)):
                 try:
                     if int(conteudo[x]) > 0 and int(conteudo[x]) < 10:
@@ -71,7 +79,9 @@ def solve_inputs():
                 eNumeroLinha = False
             if i == 9:
                 solve_bfs(quadro,files_it)
-                solve_A_star(quadro,files_it)
+                #solve_A_star(quadro, files_it)
+                if files_it < 7:
+                    solve_A_star(quadro,files_it)
                 contador = 0
                 i = 0
                 j = 0
@@ -80,7 +90,7 @@ def solve_inputs():
 
 #Função principal da aplicação.
 def main():
-    generate_inputs()
+    #generate_inputs()
     solve_inputs()
 
 if __name__ == "__main__":
