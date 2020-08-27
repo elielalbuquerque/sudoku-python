@@ -1,6 +1,6 @@
 
 from queue import Queue
-from breadthFirstSearch.No_Arvore import NoArvore
+from breadthFirstSearch.Tree_Node import TreeNode
 from breadthFirstSearch.Sudoku_State_BFS import SudokuStateBFS
 
 
@@ -10,28 +10,28 @@ class SudokuPlayerBFS:
         self.board = SudokuStateBFS(board)
         self.steps = 0
 
-    def busca_em_largura(self):
+    def breadth_first_search(self):
         # Cria o nó inicial da árvore de problemas mantendo o quadro original
-        no = NoArvore(self.board.inicial)
+        node = TreeNode(self.board.start)
         # Verifi se o quadro incial está correto e retorna imediatamente se este é válido
-        if self.board.testa_validade(no.estado):
-            return no
+        if self.board.test_validity(node.state):
+            return node
 
-        fronteira = Queue()
-        fronteira.put(no)
+        border = Queue()
+        border.put(node)
 
         # Executa até todos os nós forem explorados e uma solução for encontrada
-        while (fronteira.qsize() != 0):
-            no = fronteira.get()
-            for filho in no.expandir(self.board):
+        while (border.qsize() != 0):
+            node = border.get()
+            for children in node.expand(self.board):
                 self.steps += 1
-                if self.board.testa_validade(filho.estado):
-                    return filho.estado
-                fronteira.put(filho)
+                if self.board.test_validity(children.state):
+                    return children.state
+                border.put(children)
         return None
 
     # Função que retorna o número de passos
-    def get_steps(self):
+    def get_passos(self):
         return self.steps
 
 

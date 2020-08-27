@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Sudoku - Codificação paara resolução do Sudoku usando a lógica
-do algorirmo de busca em largura.
+do algorirmo de busca em largura e a busca em largura com heurística
+baseada no algoritmo A*.
 Autores : Gustavo Zanatta Bruno e Guilherme F. S. Camnpos
-Repositório: https://github.com/zanattabruno/sudoku-ia-unisinos
 """
 import sys
 import time
@@ -16,8 +16,8 @@ def busca_em_largura():
     print('Resolvendo com a busca em largura...')
     t1 = time.time()
     sudoku_bfs = SudokuPlayerBFS(quadro_inicial.tolist())
-    result = numpy.asarray(sudoku_bfs.busca_em_largura(), dtype=numpy.int32)
-    s = sudoku_bfs.get_steps()
+    result = numpy.asarray(sudoku_bfs.breadth_first_search(), dtype=numpy.int32)
+    s = sudoku_bfs.get_passos()
     e_s.imprime_resultado(result, time.time() - t1, s)
 
 def busca_a_star():
