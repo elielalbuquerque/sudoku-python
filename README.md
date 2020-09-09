@@ -28,14 +28,15 @@ Second step is to run the [main.py](main.py) and select the algorithm to solve t
  ## Extra Options
  ### Test Solving Algorithms
 
-For testing performance of both algorithms we use [py-sudoku project](https://pypi.org/project/py-sudoku/). We imported this project to our code, in [sudoku.py](generator/sudoku.py) to edit de print method with objective to facilitate the coversion of sudoku board to array.
+For testing performance of both algorithms we use [py-sudoku project](https://pypi.org/project/py-sudoku/). We imported this project to our code, in [sudoku.py](generator/sudoku.py,) to edit print method with objective to facilitate the coversion of sudoku board to array.
 
-For generate the tests boards and calculate yours outpus run [tests.py]. 
+For generate the tests boards and calculate yours outpus run [tests.py](tests.py). When run generated boards will be allocated in path [tests](tests/) 
  
 
 # Prerequisites
   * Python 3
+  * Package numpy
 
-# Author
+# Authors
 Gustavo Zanatta Bruno @zanattabruno
 Guilherme Falcão Silva Campos @guilhermefscampos
