@@ -29,7 +29,7 @@ def a_star_search():
     e_s.print_result(result, time.time() - t1, s)
 
 
-quadro_inicial = e_s.convert_txt_to_array('entrada.txt')
+initial_board = e_s.convert_txt_to_array('entrada.txt')
 
 while True:
     print("Opções de algoritmos para resolver o SUDOKU:")
