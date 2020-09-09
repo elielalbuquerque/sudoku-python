@@ -9,17 +9,17 @@ This working is part of Programming Techniques discipline in Unisinos's Computer
 
  First insert the board to solve in the file [input.txt](input.txt) in format like this:
 
-5 3 _ | _ 7 _ | _ _ _<br />
-6 _ _ | 1 9 5 | _ _ _<br />
-_ 9 8 | _ _ _ | _ 6 _<br />
-------+-------+------<br />
-8 _ _ | _ 6 _ | _ _ 3<br />
-4 _ _ | 8 _ 3 | _ _ 1<br />
-7 _ _ | _ 2 _ | _ _ 6<br />
-------+-------+------<br /><
-_ 6 _ | _ _ _ | 2 8 _<br />
-_ _ _ | 4 1 9 | _ _ 5<br />
-_ _ _ | _ 8 _ | _ 7 9<br />
+5 3 _ | _ 7 _ | _ _ _ /s
+6 _ _ | 1 9 5 | _ _ _ /s
+_ 9 8 | _ _ _ | _ 6 _ /s
+------+-------+------ /s
+8 _ _ | _ 6 _ | _ _ 3 /s
+4 _ _ | 8 _ 3 | _ _ 1 /s
+7 _ _ | _ 2 _ | _ _ 6 /s
+------+-------+------ /s
+_ 6 _ | _ _ _ | 2 8 _ /s
+_ _ _ | 4 1 9 | _ _ 5 /s
+_ _ _ | _ 8 _ | _ 7 9 /s
 
 Before insert confirm if this is a valid sudoku board.
 
