@@ -23,11 +23,14 @@ _ _ _ | _ 8 _ | _ 7 9
 
 Before insert confirm if this is a valid sudoku board.
 
-Second step is to run the [_main.py_] and select the algoritm to solve the board. Chose one of four options, 1 resolve using BFS, 2 resolve using aStar, 3 resolve using both and 4 exit of program.
+Second step is to run the [_main.py_] and select the algorithm to solve the board. Chose one of four options, 1 resolve using BFS, 2 resolve using aStar, 3 resolve using both and 4 exit of program.
 
  ## Extra Options
- ### Input Board to Solve
+ ### Test Solving Algorithms
 
+For testing performance of both algorithms we use [py-sudoku project](https://pypi.org/project/py-sudoku/). We imported this project to our code to edit de print method with objective to facilitate the coversion of sudoku board to array.
+
+For generate the tests boards and calculate yours outpus run tests.py
  
 
 # Prerequisites
