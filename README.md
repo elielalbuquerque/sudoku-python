@@ -23,7 +23,7 @@ _ _ _ | _ 8 _ | _ 7 9
 
 Before insert confirm if this is a valid sudoku board.
 
-Second step is to run the [_main.py_] and select the algorithm to solve the board. Chose one of four options, 1 resolve using BFS, 2 resolve using aStar, 3 resolve using both and 4 exit of program.
+Second step is to run the [main.py](main.py) and select the algorithm to solve the board. Chose one of four options, 1 resolve using BFS, 2 resolve using aStar, 3 resolve using both and 4 exit of program.
 
  ## Extra Options
  ### Test Solving Algorithms
