@@ -1,6 +1,6 @@
 import numpy
 
-def covert_txt_to_array (arquivo):
+def convert_txt_to_array (arquivo):
     try:
         dados = open(arquivo, "r")
     except (FileNotFoundError, IOError):
@@ -58,4 +58,4 @@ def print_result(resultado, t, s=0):
         try:
             numpy.savetxt(arquivo_saida, resultado, delimiter=' ', fmt='%d')
         except (FileNotFoundError, IOError):
-            print("Arquivo de saída não encontrado!")
+            print("Arquivo de saída não encontrado!") 
