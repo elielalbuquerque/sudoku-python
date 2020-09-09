@@ -1,6 +1,34 @@
-# sudoku-ia-unisinos
-This working is part of Artificial Intelligence and Intelligent Systems discipline in Unisinos's Computer Science postgraduate program. Here you can find two solvers aproaches, firstly a implementation of [Breadth-first Search] (https://en.wikipedia.org/wiki/Breadth-first_search). Second is used a implementation based on [A* Search Algorithm] (https://en.wikipedia.org/wiki/A*_search_algorithm).
- A simple python console application that reads an input sudoku from [_input.txt_](https://raw.githubusercontent.com/zanattabruno/sudoku-ia-unisinos/master/input.txt?token=AHTNX33H5GWYRPVB3WNKDUS7BPLS4) and solves it using above algorithms.
+# sudoku-python
+
+This working is part of Programming Techniques discipline in Unisinos's Computer Science postgraduate program. Here you can find two sudoku solvers aproaches, firstly a implementation of [Breadth-first Search] (https://en.wikipedia.org/wiki/Breadth-first_search). Second is used a implementation based on [A* Search Algorithm] (https://en.wikipedia.org/wiki/A*_search_algorithm).
+ A simple python console application that reads an input sudoku from [_input.txt_] and solves it using above algorithms.
+
+ # User Instructions
+ ## Basic Utilization
+ ### Input Board to Solve
+
+ First insert the board to solve in the file [_input.txt_] in format like this:
+
+5 3 _ | _ 7 _ | _ _ _
+6 _ _ | 1 9 5 | _ _ _
+_ 9 8 | _ _ _ | _ 6 _
+------+-------+------
+8 _ _ | _ 6 _ | _ _ 3
+4 _ _ | 8 _ 3 | _ _ 1
+7 _ _ | _ 2 _ | _ _ 6
+------+-------+------
+_ 6 _ | _ _ _ | 2 8 _
+_ _ _ | 4 1 9 | _ _ 5
+_ _ _ | _ 8 _ | _ 7 9
+
+Before insert confirm if this is a valid sudoku board.
+
+Second step is to run the [_main.py_] and select the algoritm to solve the board. Chose one of four options, 1 resolve using BFS, 2 resolve using aStar, 3 resolve using both and 4 exit of program.
+
+ ## Extra Options
+ ### Input Board to Solve
+
+ 
 
 # Prerequisites
   * Python 3

@@ -1,8 +1,8 @@
 import numpy
 
-def convert_txt_to_array (arquivo):
+def convert_txt_to_array (file):
     try:
-        dados = open(arquivo, "r")
+        dados = open(file, "r")
     except (FileNotFoundError, IOError):
         print("Arquivo de entrada não encontrado!")
     quadro = numpy.zeros((9,9))

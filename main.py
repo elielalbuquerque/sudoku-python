@@ -9,7 +9,7 @@ import sys
 import time
 import numpy
 from breadthFirstSearch.Sudoku_Player_BFS import SudokuPlayerBFS
-import entrada_saida as e_s
+import input_output as i_o
 from aStar.Sudoku_A_Star import SudokuPlayerAStar
 
 def breadth_first_search():
@@ -18,7 +18,7 @@ def breadth_first_search():
     sudoku_bfs = SudokuPlayerBFS(initial_board.tolist())
     result = numpy.asarray(sudoku_bfs.breadth_first_search(), dtype=numpy.int32)
     s = sudoku_bfs.get_steps()
-    e_s.print_result(result, time.time() - t1, s)
+    i_o.print_result(result, time.time() - t1, s)
 
 def a_star_search():
     print('Resolvendo com a Heurística A-Star...')
@@ -26,10 +26,10 @@ def a_star_search():
     sudoku_A_Star = SudokuPlayerAStar(initial_board)
     result = numpy.asarray(sudoku_A_Star.solve_a_star(), dtype=numpy.int32)
     s = sudoku_A_Star.get_steps()
-    e_s.print_result(result, time.time() - t1, s)
+    i_o.print_result(result, time.time() - t1, s)
 
 
-initial_board = e_s.convert_txt_to_array('entrada.txt')
+initial_board = e_s.convert_txt_to_array('input.txt')
 
 while True:
     print("Opções de algoritmos para resolver o SUDOKU:")
