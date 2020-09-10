@@ -1,3 +1,10 @@
 {
-    "python.pythonPath": "C:\\Users\\Gustavo\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
+    "python.pythonPath": "C:\\Users\\Gustavo\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "spellright.language": [
+        "pt"
+    ],
+    "spellright.documentTypes": [
+        "latex",
+        "plaintext"
+    ]
 }
