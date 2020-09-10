@@ -32,7 +32,7 @@ For testing performance of both algorithms we use [py-sudoku project](https://py
 Observation: with complexity bigger than 50% of blanc spaces  our implementation of aStar algorithm entry in loop.
 
 For generate the tests boards and calculate yours outputs run [tests.py](tests.py). When run generated boards will be allocated in path [inputs](tests/inputs/). The results of the tests will be allocated in
-path [results]([inputs](tests/results/). The results are composed by number of steps and time for resolution for each algorithm.
+path [results](tests/results/). The results are composed by number of steps and time for resolution for each algorithm.
 
  #### Analysis of algorithms
 To execute analysis of both algorithms run [data_analysis.py](data_analysis.py), he's calculate the median steps and time to solve boards for each difficult level (10% until 50% of blanc spaces in boards), the output of these calculations are in [tests](tests/) folder, one to aStar e one to BFS.
