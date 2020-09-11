@@ -59,7 +59,6 @@ class AnalysisResultsAll:
         self.max_level=max_level
 
     def generate_calcs(self):
-        print(f"Gerando tests analysis")
         file_bfs = open(f'tests/analysis_bfs.txt', 'w').close()
         file_aStar = open(f'tests/analysis_aStar.txt', 'w').close()
         for file_id in range (1, self.max_level+1):
@@ -75,21 +74,24 @@ class AnalysisResultsAll:
             print (test_bfs, file=open(f'tests/analysis_bfs.txt', "a"))
 
 
-def plot_bar(names, values, label, xlabel, ylabel,suptitle):
+def plot_bar(names, values, label, xlabel, ylabel,suptitle,file_name):
     plt.ylabel(ylabel)
     plt.xlabel(xlabel)
     plt.bar(names, values, label = label)
     plt.legend()
     plt.suptitle(suptitle)
-    plt.show()
+    plt.savefig(f'plots/{file_name}.png')
+    ##plt.show()
 
-def plot_line(names, values, label, xlabel, ylabel,suptitle):
+def plot_line(names, values, label, xlabel, ylabel,suptitle,file_name):
     plt.ylabel(ylabel)
     plt.xlabel(xlabel)
     plt.plot(names, values, label = label)
     plt.legend()
     plt.suptitle(suptitle)
-    plt.show()
+    plt.savefig(f'plots/{file_name}.png')
+    ##plt.show()
+
 
 def plot_steps():
     test = AnalysisResultsAll(5)
@@ -101,11 +103,11 @@ def plot_steps():
         values_median_steps_bfs.append(test.all_results_bfs[i].median_steps)
     for i in range (5):
         values_median_steps_aStar.append(test.all_results_aStar[i].median_steps)
-
-    plot_line(names,values_median_steps_bfs,'BFS','Level','Steps','Steps Number Evolution by Level in BFS')
-    plot_bar(names,values_median_steps_bfs,'BFS','Level','Steps','Steps Number Evolution by Level in BFS')
-    plot_line(names,values_median_steps_aStar,'aStar','Level','Steps','Steps Number Evolution by Level in aStar')
-    plot_bar(names,values_median_steps_aStar,'aStar','Level','Steps','Steps Number Evolution by Level in aStar')
+ 
+    plot_line(names,values_median_steps_bfs,'BFS','Level','Steps','Steps Number Evolution by Level in BFS','bfs_steps_line')
+    plot_bar(names,values_median_steps_bfs,'BFS','Level','Steps','Steps Number Evolution by Level in BFS','bfs_steps_bar')
+    plot_line(names,values_median_steps_aStar,'aStar','Level','Steps','Steps Number Evolution by Level in aStar','aStar_steps_line')
+    plot_bar(names,values_median_steps_aStar,'aStar','Level','Steps','Steps Number Evolution by Level in aStar','aStar_steps_bar')
 
 def plot_time():
     test = AnalysisResultsAll(5)
@@ -118,10 +120,10 @@ def plot_time():
     for i in range (5):
         values_median_time_aStar.append(test.all_results_aStar[i].median_execution_time)
 
-    plot_line(names,values_median_time_bfs,'BFS','Level','Time (s)','Median Time evolution in BFS')
-    plot_bar(names,values_median_time_bfs,'BFS','Level','Time (s)','Median Time evolution in BFS')
-    plot_line(names,values_median_time_aStar,'aStar','Level','Time (s)','Median Time evolution in aStar')
-    plot_bar(names,values_median_time_aStar,'aStar','Level','Time (s)','Median Time evolution in aStar')
+    plot_line(names,values_median_time_bfs,'BFS','Level','Time (s)','Median Time evolution in BFS','bfs_time_line')
+    plot_bar(names,values_median_time_bfs,'BFS','Level','Time (s)','Median Time evolution in BFS','bfs_time_bar')
+    plot_line(names,values_median_time_aStar,'aStar','Level','Time (s)','Median Time evolution in aStar','aStar_time_line')
+    plot_bar(names,values_median_time_aStar,'aStar','Level','Time (s)','Median Time evolution in aStar','aStar_time_bar')
 
 def plot_steps_group():
     test = AnalysisResultsAll(5)
@@ -139,7 +141,8 @@ def plot_steps_group():
     plt.plot(names,values_median_steps_aStar,'bo')
     plt.title("Median Steps Evolution by Level")
     plt.legend()
-    plt.show()
+    plt.savefig('plots/group_steps_line.png')
+    ###plt.show()
 
     x = np.arange(len(names))  # the label locations
     width = 0.35  # the width of the bars
@@ -163,7 +166,8 @@ def plot_steps_group():
     autolabel(rects1)
     autolabel(rects2)
     fig.tight_layout()
-    plt.show()
+    plt.savefig('plots/group_steps_bar.png')
+    ###plt.show()
 
 def plot_time_group():
     test = AnalysisResultsAll(5)
@@ -181,7 +185,8 @@ def plot_time_group():
     plt.plot(names,values_median_time_aStar,'bo')
     plt.title("Median Time Evolution by Level")
     plt.legend()
-    plt.show()
+    plt.savefig('plots/group_time_line.png')
+    ###plt.show()
 
     x = np.arange(len(names))  # the label locations
     width = 0.35  # the width of the bars
@@ -205,7 +210,8 @@ def plot_time_group():
     autolabel(rects1)
     autolabel(rects2)
     fig.tight_layout()
-    plt.show()
+    plt.savefig('plots/group_time_bar.png')
+    ###plt.show()
 
 def main():
     plot_steps()
