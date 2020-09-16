@@ -2,38 +2,38 @@ import numpy
 
 def convert_txt_to_array (file):
     try:
-        dados = open(file, "r")
+        datas = open(file, "r")
     except (FileNotFoundError, IOError):
         print("Arquivo de entrada não encontrado!")
-    quadro = numpy.zeros((9,9))
-    contador = 0
+    board = numpy.zeros((9,9))
+    counter = 0
     i = 0
     j = 0
-    eNumero = False
-    while contador <81:
-        conteudo=dados.readline()
-        eNumero = False
-        for x in range(len(conteudo)):
+    is_number = False
+    while counter <81:
+        content=datas.readline()
+        is_number = False
+        for x in range(len(content)):
             try:
-                if int(conteudo[x]) > 0 and int(conteudo[x]) < 10:
-                    quadro[i,j]=int(conteudo[x])
+                if int(content[x]) > 0 and int(content[x]) < 10:
+                    board[i,j]=int(content[x])
                     j = j + 1
-                    contador = contador +1
-                    eNumero = True
+                    counter = counter +1
+                    is_number = True
             except ValueError:
-                if conteudo[x]=='_':
+                if content[x]=='_':
                     j = j + 1
-                    contador = contador +1
-                    eNumero = True
+                    counter = counter +1
+                    is_number = True
                 #else:
                     #print(content[x], 'is not regonized')
             if j == 9:
                 j = 0
-        if eNumero:
+        if is_number:
             i = i + 1
-    return quadro   
+    return board   
 
-def imprime_quadro(board):
+def print_board(board):
     out_str = ''
     for i in range(9):
         if i in [3, 6]:
@@ -47,15 +47,15 @@ def imprime_quadro(board):
         out_str += line + '\n'
     return out_str
 
-def print_result(resultado, t, s=0):
-    if resultado is None:
+def print_result(result, t, s=0):
+    if result is None:
         print("Esse quadro não tem solução!")
     else:
-        print(imprime_quadro(resultado))
+        print(print_board(result))
         print(f'Tempo para resolução: {t} segundos!')
         print(f'Passos {s}!\n')
-        arquivo_saida = 'saida.txt'
+        arquivo_saida = 'output.txt'
         try:
-            numpy.savetxt(arquivo_saida, resultado, delimiter=' ', fmt='%d')
+            numpy.savetxt(arquivo_saida, result, delimiter=' ', fmt='%d')
         except (FileNotFoundError, IOError):
             print("Arquivo de saída não encontrado!") 
