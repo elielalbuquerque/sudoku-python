@@ -6,8 +6,8 @@ This working is part of Unisinos 's Computer Science postgraduate program. Here 
  ## Table of contents
 
 - [User Instructions](#User-Instructions)
-- [Basic Utilization](##Basic-Utilization)
-- [Advanced Utilization](##Advanced Utilization)
+- [Basic Utilization](#Basic-Utilization)
+- [Advanced Utilization](#Advanced Utilization)
 
 
 
