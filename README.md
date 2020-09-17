@@ -6,6 +6,12 @@ This working is part of Unisinos 's Computer Science postgraduate program. Here 
  ## Table of contents
 
 - [User Instructions](#User-Instructions)
+-- [Basic Utilization](#Basic-Utilization)
+-- [Advanced Utilization](#Advanced Utilization)
+
+
+
+
 - [Performance Analysis and Comparison](#Performance-Analysis-and-Comparison)
 
 - [Performance Analysis and Comparison](#Performance-Analysis-and-Comparison)
@@ -39,7 +45,7 @@ Second step is to run the [main.py](main.py) and select the algorithm to solve t
 
  ### Advanced Utilization
 
-To regenerate tests and new analysis just run the [tests].
+To regenerate tests and new analysis run the [tests](tests.py). And to generate just run [data_analysis](data_analysis.py)
 
  ##  Performance Analysis and Comparison
 In this section will evaluate the performance of our proposals algorithms to solve sudoku codified here. Basically will discuss about performance the two algorithms proposals implemented in this code, the algorithms BFS and aStar.
