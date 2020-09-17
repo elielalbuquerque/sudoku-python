@@ -63,10 +63,8 @@ Two metrics were chosen to analyze the performance of both algorithms. The first
 To execute analysis of both algorithms run [data_analysis.py](data_analysis.py), he's calculate the median steps and time to solve boards for each difficult level (10% until 50% of blanc spaces in boards), the output of these calculations are in [tests](tests/) folder, one to aStar e one to BFS.
 First row is to difficult level min, in other words 10 % of blanc spaces, second row to 20% and so on, until 50 %. First data in each row are median execution time for this difficulty level, second median steps, third  max number of steps, fourth min number of steps, fifth max execution time and sixth min execution time. After all calculations are plotted several pictures to provide a best analysis of the algorithms performance.
 
-
-
-![Evolution of steps number with increase complexity.](plots/group_steps_bar.png)
-Format: ![Alt Text](url)
+![group_steps_bar](plots/group_steps_bar.png)
+Format: ![Evolution of steps number with increase complexity.](url)
 
 
 
