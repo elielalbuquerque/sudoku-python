@@ -132,17 +132,17 @@ def plot_time():
 def plot_steps_group():
     test = AnalysisResultsAll(5)
     test.generate_calcs()
-    names = [1,2,3,4,5]
+    levels = [1,2,3,4,5]
     values_median_steps_bfs = []
     values_median_steps_aStar = []
     for i in range (5):
         values_median_steps_bfs.append(test.all_results_bfs[i].median_steps)
     for i in range (5):
         values_median_steps_aStar.append(test.all_results_aStar[i].median_steps)
-    plt.plot(names,values_median_steps_bfs,label='BFS')
-    plt.plot(names,values_median_steps_bfs,'bo')
-    plt.plot(names,values_median_steps_aStar,label='aStar')
-    plt.plot(names,values_median_steps_aStar,'bo')
+    plt.plot(levels,values_median_steps_bfs,label='BFS')
+    plt.plot(levels,values_median_steps_bfs,'bo')
+    plt.plot(levels,values_median_steps_aStar,label='aStar')
+    plt.plot(levels,values_median_steps_aStar,'bo')
     plt.ylabel('Steps Number')
     plt.xlabel('Difficulty Level')
     plt.title("Median Steps Evolution by Level")
@@ -153,13 +153,15 @@ def plot_steps_group():
     plt.clf()
 
 
-    x = np.arange(len(names))  # the label locations
+    x = np.arange(len(levels))  # the label locations
     width = 0.35  # the width of the bars
     fig, ax = plt.subplots()
     rects1 = ax.bar(x - width/2, values_median_steps_bfs, width, label='BFS')
     rects2 = ax.bar(x + width/2, values_median_steps_aStar, width, label='aStar')
     ax.set_ylabel('Steps Number')
     ax.set_xlabel('Difficulty Level')
+    ax.set_xticks(x)
+    ax.set_xticklabels(levels)
     ax.legend()
     
     def autolabel(rects):
@@ -185,17 +187,17 @@ def plot_steps_group():
 def plot_time_group():
     test = AnalysisResultsAll(5)
     test.generate_calcs()
-    names = [1,2,3,4,5]
+    levels = [1,2,3,4,5]
     values_median_time_bfs = []
     values_median_time_aStar = []
     for i in range (5):
         values_median_time_bfs.append(test.all_results_bfs[i].median_execution_time)
     for i in range (5):
         values_median_time_aStar.append(test.all_results_aStar[i].median_execution_time)
-    plt.plot(names,values_median_time_bfs,label='BFS')
-    plt.plot(names,values_median_time_bfs,'bo')
-    plt.plot(names,values_median_time_aStar,label='aStar')
-    plt.plot(names,values_median_time_aStar,'bo')
+    plt.plot(levels,values_median_time_bfs,label='BFS')
+    plt.plot(levels,values_median_time_bfs,'bo')
+    plt.plot(levels,values_median_time_aStar,label='aStar')
+    plt.plot(levels,values_median_time_aStar,'bo')
     plt.ylabel('Execution Time (s)')
     plt.xlabel('Difficulty Level')
     plt.title("Median Time Evolution by Level")
@@ -206,13 +208,15 @@ def plot_time_group():
     plt.clf()
 
 
-    x = np.arange(len(names))  # the label locations
+    x = np.arange(len(levels))  # the label locations
     width = 0.35  # the width of the bars
     fig, ax = plt.subplots()
     rects1 = ax.bar(x - width/2, values_median_time_bfs, width, label='BFS')
     rects2 = ax.bar(x + width/2, values_median_time_aStar, width, label='aStar')
     ax.set_ylabel('Execution Time (s)')
     ax.set_xlabel('Difficulty Level')
+    ax.set_xticks(x)
+    ax.set_xticklabels(levels)
     ax.legend()
     
     def autolabel(rects):
