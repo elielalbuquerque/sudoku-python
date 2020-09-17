@@ -63,9 +63,17 @@ Two metrics were chosen to analyze the performance of both algorithms. The first
 To execute analysis of both algorithms run [data_analysis.py](data_analysis.py), he's calculate the median steps and time to solve boards for each difficult level (10% until 50% of blanc spaces in boards), the output of these calculations are in [tests](tests/) folder, one to aStar e one to BFS.
 First row is to difficult level min, in other words 10 % of blanc spaces, second row to 20% and so on, until 50 %. First data in each row are median execution time for this difficulty level, second median steps, third  max number of steps, fourth min number of steps, fifth max execution time and sixth min execution time. After all calculations are plotted several pictures to provide a best analysis of the algorithms performance.
 
+ #### Analysis of steps number
+
+In the picture bellow we can see that up to the level of complexity three, that is, with 30% of blank spaces, the implementation of BFS tends to require a smaller number of steps. After level four, aStar starts to see a small improvement, of 6.06%, over the number of steps of the BFS. Already at kevel five, aStar shows a significant improvement in the number of steps over BFS, this improvement was 53,67%.
+
 ![group_steps_bar](plots/group_steps_bar.png)
 
+ #### Analysis of execution time
 
+In the picture above we can see that up to the level of complexity three, that is, with 30% of blank spaces, the implementation of BFS tends to require a smaller number of steps. After level four, aStar starts to see a small improvement, of 6.06%, over the number of steps of the BFS. Already at kevel five, aStar shows a significant improvement in the number of steps over BFS, this improvement was 53,67%.
+
+![group_time_bar](plots/group_time_bar.png)
 
 ## Prerequisites
   * Python 3

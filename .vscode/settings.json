@@ -4,8 +4,8 @@
         "en"
     ],
     "spellright.documentTypes": [
+        "markdown",
         "latex",
-        "plaintext",
-        "markdown"
+        "plaintext"
     ]
 }
