@@ -147,6 +147,7 @@ def plot_steps_group():
     plt.xlabel('Difficulty Level')
     plt.title("Median Steps Evolution by Level")
     plt.legend()
+    plt.tight_layout()
     plt.savefig('plots/group_steps_line.png')
     ###plt.show()
     plt.clf()
@@ -174,6 +175,8 @@ def plot_steps_group():
     autolabel(rects1)
     autolabel(rects2)
     fig.tight_layout()
+    plt.title("Median Steps Evolution by Level")
+    plt.tight_layout()
     plt.savefig('plots/group_steps_bar.png')
     ###plt.show()
     plt.clf()
@@ -197,8 +200,9 @@ def plot_time_group():
     plt.xlabel('Difficulty Level')
     plt.title("Median Time Evolution by Level")
     plt.legend()
+    plt.tight_layout()
     plt.savefig('plots/group_time_line.png')
-    ###plt.show()
+    #plt.show()
     plt.clf()
 
 
@@ -224,8 +228,10 @@ def plot_time_group():
     autolabel(rects1)
     autolabel(rects2)
     fig.tight_layout()
+    plt.title("Median Time Evolution by Level")
+    plt.tight_layout()
     plt.savefig('plots/group_time_bar.png')
-    ###plt.show()
+    #plt.show()
     plt.clf()
 
 
