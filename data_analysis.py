@@ -82,15 +82,19 @@ def plot_bar(names, values, label, xlabel, ylabel,suptitle,file_name):
     plt.suptitle(suptitle)
     plt.savefig(f'plots/{file_name}.png')
     ##plt.show()
+    plt.clf()
+
 
 def plot_line(names, values, label, xlabel, ylabel,suptitle,file_name):
     plt.ylabel(ylabel)
     plt.xlabel(xlabel)
     plt.plot(names, values, label = label)
+    plt.plot(names, values,'bo')
     plt.legend()
     plt.suptitle(suptitle)
     plt.savefig(f'plots/{file_name}.png')
     ##plt.show()
+    plt.clf()
 
 
 def plot_steps():
@@ -103,11 +107,11 @@ def plot_steps():
         values_median_steps_bfs.append(test.all_results_bfs[i].median_steps)
     for i in range (5):
         values_median_steps_aStar.append(test.all_results_aStar[i].median_steps)
- 
     plot_line(names,values_median_steps_bfs,'BFS','Level','Steps','Steps Number Evolution by Level in BFS','bfs_steps_line')
     plot_bar(names,values_median_steps_bfs,'BFS','Level','Steps','Steps Number Evolution by Level in BFS','bfs_steps_bar')
     plot_line(names,values_median_steps_aStar,'aStar','Level','Steps','Steps Number Evolution by Level in aStar','aStar_steps_line')
     plot_bar(names,values_median_steps_aStar,'aStar','Level','Steps','Steps Number Evolution by Level in aStar','aStar_steps_bar')
+
 
 def plot_time():
     test = AnalysisResultsAll(5)
@@ -119,11 +123,11 @@ def plot_time():
         values_median_time_bfs.append(test.all_results_bfs[i].median_execution_time)
     for i in range (5):
         values_median_time_aStar.append(test.all_results_aStar[i].median_execution_time)
-
     plot_line(names,values_median_time_bfs,'BFS','Level','Time (s)','Median Time evolution in BFS','bfs_time_line')
     plot_bar(names,values_median_time_bfs,'BFS','Level','Time (s)','Median Time evolution in BFS','bfs_time_bar')
     plot_line(names,values_median_time_aStar,'aStar','Level','Time (s)','Median Time evolution in aStar','aStar_time_line')
     plot_bar(names,values_median_time_aStar,'aStar','Level','Time (s)','Median Time evolution in aStar','aStar_time_bar')
+
 
 def plot_steps_group():
     test = AnalysisResultsAll(5)
@@ -139,10 +143,14 @@ def plot_steps_group():
     plt.plot(names,values_median_steps_bfs,'bo')
     plt.plot(names,values_median_steps_aStar,label='aStar')
     plt.plot(names,values_median_steps_aStar,'bo')
+    plt.ylabel('Steps Number')
+    plt.xlabel('Difficulty Level')
     plt.title("Median Steps Evolution by Level")
     plt.legend()
     plt.savefig('plots/group_steps_line.png')
     ###plt.show()
+    plt.clf()
+
 
     x = np.arange(len(names))  # the label locations
     width = 0.35  # the width of the bars
@@ -168,6 +176,8 @@ def plot_steps_group():
     fig.tight_layout()
     plt.savefig('plots/group_steps_bar.png')
     ###plt.show()
+    plt.clf()
+
 
 def plot_time_group():
     test = AnalysisResultsAll(5)
@@ -183,17 +193,21 @@ def plot_time_group():
     plt.plot(names,values_median_time_bfs,'bo')
     plt.plot(names,values_median_time_aStar,label='aStar')
     plt.plot(names,values_median_time_aStar,'bo')
+    plt.ylabel('Execution Time (s)')
+    plt.xlabel('Difficulty Level')
     plt.title("Median Time Evolution by Level")
     plt.legend()
     plt.savefig('plots/group_time_line.png')
     ###plt.show()
+    plt.clf()
+
 
     x = np.arange(len(names))  # the label locations
     width = 0.35  # the width of the bars
     fig, ax = plt.subplots()
     rects1 = ax.bar(x - width/2, values_median_time_bfs, width, label='BFS')
     rects2 = ax.bar(x + width/2, values_median_time_aStar, width, label='aStar')
-    ax.set_ylabel('Execution Time')
+    ax.set_ylabel('Execution Time (s)')
     ax.set_xlabel('Difficulty Level')
     ax.legend()
     
@@ -212,6 +226,8 @@ def plot_time_group():
     fig.tight_layout()
     plt.savefig('plots/group_time_bar.png')
     ###plt.show()
+    plt.clf()
+
 
 def main():
     plot_steps()

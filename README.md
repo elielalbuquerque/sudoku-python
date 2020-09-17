@@ -7,13 +7,17 @@ This working is part of Unisinos 's Computer Science postgraduate program. Here 
 
 - [User Instructions](#User-Instructions)
 - [Performance Analysis and Comparison](#Performance-Analysis-and-Comparison)
+
+- [Performance Analysis and Comparison](#Performance-Analysis-and-Comparison)
+- [Performance Analysis and Comparison](#Performance-Analysis-and-Comparison)
+- [Performance Analysis and Comparison](#Performance-Analysis-and-Comparison)
+
 - [Prerequisites](#Prerequisites)
 - [Authors](#authors)
 
 
  ## User Instructions
  ### Basic Utilization
- #### Input Board to Solve
 
  First insert the board to solve in the file [input.txt](input.txt) in format like this:
 
@@ -33,11 +37,14 @@ Before insert confirm if this is a valid sudoku board.
 
 Second step is to run the [main.py](main.py) and select the algorithm to solve the board. Chose one of four options, 1 resolve using BFS, 2 resolve using aStar, 3 resolve using both and 4 exit of program.
 
- ###  Performance Analysis and Comparison
-In this section will evaluate the performance of our proposals algorithms to solve sudoku. The implementation code is available in this [repository](https://github.com/zanattabruno/sudoku-python).
-Basically will discuss about performance the two algorithms proposals implemented in this code, the algorithms BFS and aStar.
+ ### Advanced Utilization
 
- #### Test Solving Algorithms
+To regenerate tests and new analysis just run the [tests].
+
+ ##  Performance Analysis and Comparison
+In this section will evaluate the performance of our proposals algorithms to solve sudoku codified here. Basically will discuss about performance the two algorithms proposals implemented in this code, the algorithms BFS and aStar.
+
+ ### Load for Test Solving Algorithms
 
 For testing performance of both algorithms we use [py-sudoku project](https://pypi.org/project/py-sudoku/). We imported this project to our code, in [sudoku.py](generator/sudoku.py,) to edit print method with objective to facilitate the conversion of sudoku board to array. With this package we implement our code to generate five files each containing 100 randomly generated frames, first one file with 10% of blanc spaces, next one with 20% up until 50 % the blanc spaces (more complexity).
 Observation: with complexity bigger than 50% of blanc spaces  our implementation of aStar algorithm entry in loop.
@@ -45,14 +52,18 @@ Observation: with complexity bigger than 50% of blanc spaces  our implementation
 For generate the tests boards and calculate yours outputs run [tests.py](tests.py). When run generated boards will be allocated in path [inputs](tests/inputs/). The results of the tests will be allocated in
 path [results](tests/results/). The results are composed by number of steps and time for resolution for each algorithm.
 
- #### Analysis of algorithms
-
- This page will evaluate the performance of our proposals algorithms to solve sudoku. The implementation code is available in this [repository](https://github.com/zanattabruno/sudoku-python).
-Basically will discuss about performance the two algorithms proposals implemented in this code, the algorithms BFS and aStar.
+ ### Analysis of algorithms
 
 To execute analysis of both algorithms run [data_analysis.py](data_analysis.py), he's calculate the median steps and time to solve boards for each difficult level (10% until 50% of blanc spaces in boards), the output of these calculations are in [tests](tests/) folder, one to aStar e one to BFS.
 First row is to difficult level min, in other words 10 % of blanc spaces, second row to 20% and so on, until 50 %. First data in each row are median execution time for this difficulty level, second median steps, third  max number of steps, fourth min number of steps, fifth max execution time and sixth min execution time.
 After all calculations are plotted several pictures to provide a best analysis of the algorithms performance.
+
+ ### Performance Metrics
+
+Two main metrics were chosen to analyze the performance of both algorithms. The first is the execution time and the second is the number of steps, or in the case of our implementation, the number of nodes in the tree is expanded. The execution time will vary depending on the processing capacity of the machine on which the code will be executed, but the number of steps will be the same regardless of the processing power. This is because the logic is the same regardless of the machine that will run the code, simply the fastest machine will perform the necessary steps more quickly. Logically, for this analysis, all codes were executed on the same machine under the same conditions for a fair comparison.
+
+
+
 
 ## Prerequisites
   * Python 3
