@@ -12,7 +12,7 @@ This working is part of Unisinos 's Computer Science postgraduate program. Here 
 - [Load for Test Solving Algorithms](#Load-for-Test-Solving-Algorithms)
 - [Performance Metrics](#Performance-Metrics)
 - [Analysis of algorithms](#Analysis-of-algorithms)
-
+- [Conclusions](#Conclusions)
 - [Prerequisites](#Prerequisites)
 - [Authors](#authors)
 
@@ -67,13 +67,17 @@ In the graphics bellow we show median steps and time respectively necessary for 
 
  #### Analysis of steps number
 
-In the graphics bellow we can see that up to the level of complexity three, that is, with 30% of blank spaces, the implementation of BFS tends to require a smaller number of steps. After level four, aStar starts to see a small improvement, of 6.06%, over the number of steps of the BFS. Already at kevel five, aStar shows a significant improvement in the number of steps over BFS, this improvement was 67%.
+In the graphics bellow we can see that up to the level of complexity three, that is, with 30% of blank spaces, the implementation of BFS tends to require a smaller number of steps. After level four, aStar starts to see a small improvement, of 6.06%, over the number of steps of the BFS. Already at level five, aStar shows a significant improvement in the number of steps over BFS, this improvement was 67%. However is important to note that the number of steps does not consider the computational cost of calculating the priority row of the heuristic proposed in the aStar algorithm.
 
 ![group_steps_bar](plots/group_steps_bar.png)
 
  #### Analysis of execution time
 
- In the graphics bellow we can see that the runtime is greater for aStar implementation in all levels of complexity. This is because the computation of step numbers ignores the computational cost necessary for calculating heuristics in aStar.
+ In the graphics bellow we can see that the runtime is greater for aStar implementation in all levels of complexity. Because of this, apparently the heuristic is weak, and has to be improved.
+
+ #### Conclusions
+
+For a sudoku boards tested in our work, varying the number of blanks from 10% to 50%, considering the median execution time the BFS algorithm has a better performance than aStar in all complexity levels. For a just comparison in future we will study how to calculate the computational cost in number of steps to calculate the priority queue in proposed heuristic.
 
 
 ![group_time_bar](plots/group_time_bar.png)
