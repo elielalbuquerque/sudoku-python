@@ -102,7 +102,7 @@ For a sudoku boards tested in our work, varying the number of blanks from 10% to
 
 ## Prerequisites
   * Python 3
-  * Package numpy
+  * Package numpy, matplotlib, 
 
 ## Authors
 Gustavo Zanatta Bruno @zanattabruno
