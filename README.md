@@ -68,7 +68,7 @@ To execute analysis of both algorithms run [data_analysis.py](data_analysis.py),
 First row is to difficult level min, in other words 10 % of blanc spaces, second row to 20% and so on, until 50 %. First data in each row are median execution time for this difficulty level, second median steps, third  max number of steps, fourth min number of steps, fifth max execution time and sixth min execution time. After all calculations are plotted several pictures to provide a best analysis of the algorithms performance. In the Table below we can see various statistical data about performance of implemented algorithms.
 
 
-| Algorithms and % Blanc Spaces|   Minimum Execution Time | Time of Execution |  Mean Execution Time |   Median Execution Time | Max Execution Time |   Variance of Execution Time | Minimum Number of Steps | Mean Steps | Median Steps |  Max Steps | Variance of Steps |
+| Algorithms and % of Blanc Spaces|   Minimum Execution Time | Time of Execution |  Mean Execution Time |   Median Execution Time | Max Execution Time |   Variance of Execution Time | Minimum Number of Steps | Mean Steps | Median Steps |  Max Steps | Variance of Steps |
 |:--------------|------------------------------:|----------------------------:|-----------------------------:|-------------------------------:|----------------------------:|---------------------:|-------------------:|--------------------:|----------------------:|-------------------:|-------------------:|
 | AStar 10%|                           100 |                 0.00100255  |                   0.00259265 |                     0.00297916 |                  0.00499916 |                 4.4451e-07  |                 14 |              14.99  |                  15   |                 15 |           0.01     |
 | BFS 10%    |                           100 |                 0           |                   0.00146182 |                     0.00101817 |                  0.0029943  |                 2.91767e-07 |                  8 |               8.13  |                   8   |                 12 |           0.235455 |
@@ -98,7 +98,7 @@ In the graphics bellow we can see that up to the level of complexity three, that
 
  #### Conclusions
 
-For a sudoku boards tested in our work, varying the number of blanks from 10% to 50%, considering the median execution time the BFS algorithm has a better performance than aStar in all complexity levels. For a just comparison in future we will study how to calculate the computational cost in number of steps to calculate the priority queue in proposed heuristic.
+For a sudoku boards tested in our work, varying the number of blanks from 10% to 50%, considering the median execution time the BFS algorithm has a better performance than aStar in all complexity levels. For a just comparison in future we will study how to calculate the computational cost in number of steps to calculate the priority queue in proposed heuristic in our implementation of AStar algorithm.
 
 ## Prerequisites
   * Python 3
