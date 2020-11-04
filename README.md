@@ -75,12 +75,14 @@ In the graphics bellow we can see that up to the level of complexity three, that
 
  In the graphics bellow we can see that the runtime is greater for aStar implementation in all levels of complexity. Because of this, apparently the heuristic is weak, and has to be improved.
 
+![group_time_bar](plots/group_time_bar.png)
+
  #### Conclusions
 
 For a sudoku boards tested in our work, varying the number of blanks from 10% to 50%, considering the median execution time the BFS algorithm has a better performance than aStar in all complexity levels. For a just comparison in future we will study how to calculate the computational cost in number of steps to calculate the priority queue in proposed heuristic.
 
 
-![group_time_bar](plots/group_time_bar.png)
+
 
 ## Prerequisites
   * Python 3
