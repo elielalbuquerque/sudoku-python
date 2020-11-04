@@ -65,14 +65,14 @@ Two metrics were chosen to analyze the performance of both algorithms. The first
  ### Analysis of algorithms
 
 To execute analysis of both algorithms run [data_analysis.py](data_analysis.py), he's calculate the median steps and time to solve boards for each difficult level (10% until 50% of blanc spaces in boards), the output of these calculations are in [tests](tests/) folder, one to aStar e one to BFS.
-First row is to difficult level min, in other words 10 % of blanc spaces, second row to 20% and so on, until 50 %. First data in each row are median execution time for this difficulty level, second median steps, third  max number of steps, fourth min number of steps, fifth max execution time and sixth min execution time. After all calculations are plotted several pictures to provide a best analysis of the algorithms performance. In the Table bellow we can see various statistic data about performance of implemented algorithms.
+First row is to difficult level min, in other words 10 % of blanc spaces, second row to 20% and so on, until 50 %. First data in each row are median execution time for this difficulty level, second median steps, third  max number of steps, fourth min number of steps, fifth max execution time and sixth min execution time. After all calculations are plotted several pictures to provide a best analysis of the algorithms performance. In the Table below we can see various statistical data about performance of implemented algorithms.
 
 
-| Algorithms and % Blanc Spaces|   Execution Times | Time of Execution |  Mean Execution Time |   Median Execution Time | Max Execution Time |   Variance of Execution Time | Minimum Number of Steps | Mean Steps | Median Steps |  Max Steps | Variance of Steps |
+| Algorithms and % Blanc Spaces|   Minimum Execution Time | Time of Execution |  Mean Execution Time |   Median Execution Time | Max Execution Time |   Variance of Execution Time | Minimum Number of Steps | Mean Steps | Median Steps |  Max Steps | Variance of Steps |
 |:--------------|------------------------------:|----------------------------:|-----------------------------:|-------------------------------:|----------------------------:|---------------------:|-------------------:|--------------------:|----------------------:|-------------------:|-------------------:|
 | AStar 10%|                           100 |                 0.00100255  |                   0.00259265 |                     0.00297916 |                  0.00499916 |                 4.4451e-07  |                 14 |              14.99  |                  15   |                 15 |           0.01     |
 | BFS 10%    |                           100 |                 0           |                   0.00146182 |                     0.00101817 |                  0.0029943  |                 2.91767e-07 |                  8 |               8.13  |                   8   |                 12 |           0.235455 |
-| AStar 20%) |                           100 |                 0.00497556  |                   0.00592895 |                     0.00600028 |                  0.00801063 |                 4.24597e-07 |                 31 |              31     |                  31   |                 31 |           0        |
+| AStar 20% |                           100 |                 0.00497556  |                   0.00592895 |                     0.00600028 |                  0.00801063 |                 4.24597e-07 |                 31 |              31     |                  31   |                 31 |           0        |
 | BFS 20%    |                           100 |                 0.000981808 |                   0.00221298 |                     0.00200284 |                  0.00400138 |                 3.88604e-07 |                 16 |              16.71  |                  16   |                 29 |           2.59182  |
 | AStar 30% |                           100 |                 0.00997281  |                   0.0118968  |                     0.0119947  |                  0.01999    |                 1.98372e-06 |                 45 |              46.89  |                  47   |                 47 |           0.139293 |
 | BFS 30%    |                           100 |                 0.00198102  |                   0.00394049 |                     0.00399601 |                  0.00899434 |                 2.17357e-06 |                 24 |              31.59  |                  28   |                 86 |          97.5777   |
@@ -80,7 +80,6 @@ First row is to difficult level min, in other words 10 % of blanc spaces, second
 | BFS 40%    |                           100 |                 0           |                   0.0103069  |                     0.00799501 |                  0.0699608  |                 0.000100468 |                 33 |              66.08  |                  59   |                264 |        1017.87     |
 | AStar 40% |                            71 |                 0.0279641   |                   0.0529602  |                     0.0330007  |                  1.15434    |                 0.017777    |                 69 |             146.465 |                  78   |               4818 |      316739        |
 | BFS 50%    |                            72 |                 0.00699377  |                   0.0370138  |                     0.0254962  |                  0.162908   |                 0.00109887  |                 70 |             316.139 |                 234.5 |               1598 |       77050.3      |
-
 
 
 In the graphics bellow we show median steps and time respectively necessary for both algorithms solve 100 boards generated aleatory for each complexity level, that is 10 % of blanc spaces in 100 first board for level one, 20%  in 100 secondly boards for level two and so on, until 50 % for level five. More graphics can be seen in the path [plots](plots/).
@@ -100,7 +99,6 @@ In the graphics bellow we can see that up to the level of complexity three, that
  #### Conclusions
 
 For a sudoku boards tested in our work, varying the number of blanks from 10% to 50%, considering the median execution time the BFS algorithm has a better performance than aStar in all complexity levels. For a just comparison in future we will study how to calculate the computational cost in number of steps to calculate the priority queue in proposed heuristic.
-
 
 ## Prerequisites
   * Python 3
